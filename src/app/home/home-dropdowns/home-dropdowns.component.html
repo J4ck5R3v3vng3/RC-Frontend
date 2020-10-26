@@ -1,0 +1,24 @@
+<div class="grid-container">
+
+  <form [formGroup]="dietTypeForm">
+      <select>
+        <option value="" disabled selected>Ernährungsform</option>
+        <option class="diet" *ngFor="let diet of dietType | enumToArray">{{ diet }}</option>
+      </select>
+  </form>
+
+  <form [formGroup]="dishTypeForm">
+      <select>
+        <option value="" disabled selected>Gericht</option>
+        <option class="dishType" *ngFor="let dishType of dishType | enumToArray">{{ dishType }}</option>
+      </select>
+  </form>
+
+  <form [formGroup]="cuisineForm">
+      <select>
+        <option value="" disabled selected>Länderküche</option>
+        <option class="cuisine" *ngFor="let cuisine of cuisine | enumToArray">{{ cuisine }}</option>
+      </select>
+  </form>
+
+</div>

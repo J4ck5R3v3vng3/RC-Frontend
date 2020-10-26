@@ -1,0 +1,37 @@
+  <header id="header">
+
+    <div id="navigation-home">
+      <span class="create"><a [routerLink]="['/rezept/erstellen']" title="Erstelle ein Rezept">Erstelle ein Rezept</a></span>
+      <div class="dataAndImp">
+        <span class="data">Datenschutz</span>
+        <span class="imp">Impressum</span>
+      </div>
+    </div>
+
+    <div id="banner">
+
+      <h1 id="page-title"><a [routerLink]="['/home']" title="Home">RefridgeCreator</a></h1>
+
+      <span id="spruch" class="kuehlschrank"><a [routerLink]="['/rezept/suche']" title="Rezeptsuche">Was hast du im<br>Kühlschrank?</a></span>
+
+      <div class="kuehlschrank-gruppe">
+        <a [routerLink]="['/rezept/suche']"
+        title="Rezeptsuche"
+        >
+        <img
+          class="kuehlschrank geschlossen"
+          src="assets/Kuehlschrank_geschlossen.svg"
+          alt="Kühlschrank geschlossen"
+        />
+        <img
+          class="kuehlschrank offen"
+          src="assets/Kuehlschrank_geoeffnet.svg"
+          alt="Kühlschrank geöffnet"
+        />
+        </a>
+      </div>
+
+    </div>
+
+
+  </header>

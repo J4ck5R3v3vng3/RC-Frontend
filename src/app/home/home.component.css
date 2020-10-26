@@ -1,0 +1,12 @@
+#home {
+  border-radius: 25px 25px 0 0;
+  background-color: #54a2b1;
+}
+
+.home app-home-rezept-klein {
+  margin-top: 22px;
+  display: grid;
+  row-gap: 22px;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(315px, 415px));
+}

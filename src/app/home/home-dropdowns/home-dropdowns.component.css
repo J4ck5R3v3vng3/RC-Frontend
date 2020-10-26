@@ -1,0 +1,44 @@
+div.grid-container {
+  margin-top: 22px;
+  display: grid;
+  row-gap: 22px;
+  justify-content: space-between;
+
+  grid-template-columns: repeat(auto-fit, minmax(315px, 415px));
+  font-family: "Amatic SC", cursive;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1290px;
+}
+
+select {
+  background: #fffce8;
+  border: 1px solid #433633;
+  box-sizing: border-box;
+  box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  width: 415px;
+  height: 32px;
+  font-family: "Amatic SC";
+  font-size: 2.4rem;
+  text-align: center;
+  color: rgba(67, 54, 51, 0.5);
+  font-weight: bold;
+}
+
+select * {
+  font-family: "Amatic SC";
+  font-size: 2.4rem;
+  text-align: center;
+  color: rgba(67, 54, 51, 0.5);
+  font-weight: bold;
+}
+
+/* option {
+  font-family: "Amatic SC";
+  font-size: 2.4rem;
+  text-align: center;
+  color: rgba(67, 54, 51, 0.5);
+  font-weight: bold;
+} */

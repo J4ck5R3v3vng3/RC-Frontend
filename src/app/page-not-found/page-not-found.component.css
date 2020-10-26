@@ -1,0 +1,20 @@
+h1.notFound, h2.notFound {
+  text-align: center;
+  color: #433633;
+  font-weight: bold;
+}
+
+h1.notFound {
+  margin-top: 5%;
+  font-size: 5rem;
+}
+
+.notFound a {
+  color: #FFFCE8;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+.notFound a:hover {
+  text-decoration: underline;
+}

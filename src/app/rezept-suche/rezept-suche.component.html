@@ -1,0 +1,109 @@
+<app-header></app-header>
+
+<div class="wrapperBody">
+  <div class="title">
+    <div class="blueBackground">
+      <h2>Was hast du Zuhause?</h2>
+    </div>
+  </div>
+
+  <div class="searchForm" [formGroup]="recipeForSearchParametersForm">
+
+    <h3>Zutaten</h3>
+    <div class="ingredientWrapper" formGroupName="ingredientWrapper">
+      <div class="ingredientArray" formArray="ingredientField">
+        <div class="ingredientControl" >
+
+          <div
+          class="ingredientField"
+          *ngFor="let ingredient1 of ingredientsSearchedFor; let i = index"
+          >
+            <input
+              (blur)="filterForIngredientHandler($event)"
+              type="text"
+              class="ingredient"
+              placeholder="Zutat"
+              list="completeIngredientsList"
+            />
+
+            <datalist id="completeIngredientsList">
+              <option
+              *ngFor="let ingredient2 of completeIngredientsList"
+              value="{{ingredient2.name}}"
+              >
+            </datalist>
+
+            <button class="minus" (click)="deleteIngredient(i)"></button>
+          </div>
+        </div>
+
+      </div>
+      <button class="plus" (click)="addEmptyIngredientField()"></button>
+    </div>
+
+    <h3>Zeit</h3>
+    <div class="prepTimeWrapper" formGroupName="prepTime">
+
+      <div *ngFor="let prepTime of prepTimeList" class="prepTime">
+        <label class="tag prepTime a{{prepTime}}">
+          <input
+            name="prepTime"
+            value="{{ prepTime }}"
+            type="radio"
+            (change)="prepTimeHandler($event)"
+          />
+          <span class="label b{{prepTime}}">Bis zu {{ prepTime }} Minuten</span>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+    </div>
+
+    <h3>Was willst du kochen?</h3>
+    <form class="dishType" formGroupName="dishTypeForm">
+      <div *ngFor="let dish of dishType | enumToArray" class="dishType">
+        <label class="tag dishType">
+          <input
+          name="dishType"
+            value="{{ dish }}"
+            type="radio"
+            (change)="dishTypeHandler($event)"
+          />
+          <span class="label">{{ dish }}</span>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </form>
+
+    <h3>Wie ernährst du dich?</h3>
+    <div class="dishTypeForm" formGroupName="dietTypeForm">
+    <form class="dietType" formArray="dietTypeArray">
+      <div *ngFor="let diet of dietType | enumToArray">
+        <label class="tag dietType">
+          <input
+            value="{{ diet }}"
+            type="radio"
+            (change)="dietTypeHandler($event)"
+          />
+          <span class="label">{{ diet }}</span>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </form>
+    </div>
+
+    <h3>Worauf hast du Lust?</h3>
+    <form formGroupName="cuisineForm">
+      <select>
+        <option value="" disabled selected>Länderküche</option>
+        <option class="cuisine" *ngFor="let cuisine of cuisine | enumToArray" (click)="cuisineHandler($event)">
+          {{ cuisine }}
+        </option>
+      </select>
+    </form>
+  </div>
+
+  <div class="search recipe small">
+    <app-home-rezept-klein></app-home-rezept-klein>
+  </div>
+</div>

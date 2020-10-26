@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<div class="wrapperBody" *ngIf="recipe">
+
+  <div class="title">
+    <div class="blueBackground">
+      <h2>{{recipe.title}}</h2>
+    </div>
+  </div>
+
+      <div class=" upper leftBox">
+
+        <div class="description">
+          <p>{{recipe.teaser}}</p>
+        </div>
+
+        <div class="duration">
+          <p><span class="bold">Dauer:</span> {{recipe.prepTime}} Minuten</p>
+        </div>
+
+        <div class="calPerPortion">
+          <p><span class="bold">Kalorien pro Portion:</span> {{recipe.calPerPortion}}</p>
+        </div>
+
+        <div class="carbsPerPortion">
+          <p><span class="bold">Kohlehydrate pro Portion:</span> {{recipe.carbsPerPortion}}</p>
+        </div>
+
+        <div class="proteinPerPortion">
+          <p><span class="bold">Protein pro Portion:</span> {{recipe.proteinsPerPortion}}</p>
+        </div>
+
+        <div class="fatPerPortion">
+          <p><span class="bold">Fett pro Protion:</span> {{recipe.fatPerPortion}}</p>
+        </div>
+
+        <div class="starRating">
+
+        </div>
+
+      </div>
+
+      <div class="upper rightBox">
+        <img src="{{recipe.pictureURL}}" alt="{{recipe.title}}">
+      </div>
+
+      <div class="lower leftBox">
+
+        <div class="howManyPortions">
+          <h3>Zutaten für</h3>
+
+          <input type="text" id="portionCalculator" [(ngModel)]="displayedPortionFactor" (ngModelChange)="onChangePortions()">
+          <h3>Personen</h3>
+        </div>
+
+        <div class="ingredients" *ngFor="let ingredient of ingredientList">
+          <span>{{ingredient.amount*ingredientPortionFactor}} {{ingredient.totalUnit}} {{ingredient.name}}</span>
+
+        </div>
+
+      </div>
+
+      <!-- <button (click)="getIngredients()" >Get Ingredients</button> -->
+
+      <div class="lower rightBox">
+        <div class="instructions">
+          <p style="white-space: pre-line;">{{recipe.instructions}}</p>
+        </div>
+      </div>
+
+</div>

@@ -1,0 +1,48 @@
+[
+  {
+    "recipeID": "1",
+    "title": "Koshary",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Egyptian_food_Koshary.jpg/1280px-Egyptian_food_Koshary.jpg",
+    "teaser": "fueiwafonhjb fieowjhfiuewhj ufe hwufohew uhfrjeuiowahfjeiw",
+    "howManyPortions": "2",
+    "instructions": " fiewjfiowe foewkfopew few string",
+    "calPerPortion": "500",
+    "carbsPerPortion": "20",
+    "fatPerPortion": "12",
+
+    "cuisine": "Deutsch",
+    "prepTime": "35",
+    "dishType": "Beilage",
+
+    "dietList": ["vegetarisch", "vegan"],
+    "ingredientList": ["Apfel", "Birne", "Banane", "Orange", "Birne"]
+  },
+  {
+    "title": "Pan de muerto",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Norma_Pati%C3%B1o_S%C3%A1nchez_A01334948_9.jpg/1280px-Norma_Pati%C3%B1o_S%C3%A1nchez_A01334948_9.jpg"
+  },
+  {
+    "title": "Hamburger",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1280px-RedDot_Burger.jpg"
+  },
+  {
+    "title": "Bruschetta",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Bruschetta_%2834699838%29.jpeg/800px-Bruschetta_%2834699838%29.jpeg"
+  },
+  {
+    "title": "Koshary",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Egyptian_food_Koshary.jpg/1280px-Egyptian_food_Koshary.jpg"
+  },
+  {
+    "title": "Pan de muerto",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Norma_Pati%C3%B1o_S%C3%A1nchez_A01334948_9.jpg/1280px-Norma_Pati%C3%B1o_S%C3%A1nchez_A01334948_9.jpg"
+  },
+  {
+    "title": "Hamburger",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1280px-RedDot_Burger.jpg"
+  },
+  {
+    "title": "Bruschetta",
+    "recipeImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Bruschetta_%2834699838%29.jpeg/800px-Bruschetta_%2834699838%29.jpeg"
+  }
+]

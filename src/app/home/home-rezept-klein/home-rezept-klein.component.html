@@ -1,0 +1,23 @@
+<div class="recipe-small" *ngFor="let recipe of recipe">
+
+  <a [routerLink]="['/rezept/ansicht', recipe.recipeID]">
+
+  <div class="overlay">
+
+
+      <span class="tag cuisine">{{recipe.cuisine}}</span>
+      <span class="tag dishType">{{recipe.dishType}}</span>
+      <span class="tag dietType" *ngFor="let diet of recipe.dietList">{{diet}}</span>
+
+      <span class="tag starRating">5 Sterne</span>
+      <span class="tag prepTime">{{recipe.prepTime}} Minuten</span>
+
+
+  </div>
+
+  <img class="recipe view small" src={{recipe.pictureURL}} />
+  <p class="recipe-title">{{recipe.title}}</p>
+
+  </a>
+
+</div>

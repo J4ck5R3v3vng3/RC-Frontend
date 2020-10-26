@@ -1,0 +1,212 @@
+<app-header></app-header>
+
+<div class="wrapperBody">
+  <div class="title">
+    <div class="blueBackground">
+      <h2>Teile Dein Rezept mit der Welt!</h2>
+    </div>
+  </div>
+
+  <form [formGroup]="recipeForm" class="complete">
+    <div class="upperBox">
+      <div class="leftColumn">
+        <p>Titel</p>
+        <input
+          type="text"
+          formControlName="recipeTitle"
+          placeholder="Gib Deinem Rezept einen Titel"
+        />
+
+        <p>Beschreibung</p>
+        <textarea
+          type="text"
+          class="description"
+          formControlName="description"
+          placeholder="Beschreibe Dein Rezept mit ein paar Worten"
+        ></textarea>
+
+        <p>Zeit</p>
+        <input
+          type="number"
+          formControlName="duration"
+          placeholder="In Minuten"
+        />
+
+        <p>Portionen</p>
+        <input
+          type="number"
+          formControlName="howManyPortions"
+          placeholder="Portionen"
+        />
+
+        <p>Verlinke ein Bild</p>
+        <input
+          type="text"
+          formControlName="pictureURL"
+          placeholder="Kopiere hier die URL rein"
+        />
+      </div>
+
+      <div class="middleColumn">
+        <p>Zutaten</p>
+
+        <form [formGroup]="ingredientForm">
+          <div formArrayName="ingredientList" class="ingredientItemList">
+            <div
+              *ngFor="
+                let ingredient of ingredientList().controls;
+                let ingIndex = index
+              "
+              class="ingredientCompleteWrapper"
+            >
+              <div [formGroupName]="ingIndex" class="ingredientComplete">
+
+                <div class="ingredientInputField">
+                  <input
+                   (blur)="onBlurMethod(ingIndex)"
+                    type="text"
+                    formControlName="ingredientName"
+                    aria-label="Number"
+                    class="ingredient"
+                    placeholder="Zutat"
+                    list="completeIngredientsList"
+                  />
+                  <datalist id="completeIngredientsList">
+                    <option
+                     value="{{ingredient.name}}"
+                     *ngFor="let ingredient of completeIngredientsList"
+                    >
+                  </datalist>
+                </div>
+
+                <input
+                type="number"
+                formControlName="ingredientAmount"
+                class="amount"
+                placeholder="Menge"
+                />
+
+                <input
+
+                type="text"
+                formControlName="ingredientUnit"
+                class="unit"
+                placeholder="..."
+                />
+
+                <button
+                  class="minus"
+                  name="minus"
+                  type="button"
+                  (click)="removeIngredient(ingIndex)"
+                ></button>
+              </div>
+            </div>
+
+            <button
+              (click)="addIngredient()"
+              class="plus"
+              type="button"
+              name="plusIngredient"
+            ></button>
+          </div>
+        </form>
+      </div>
+
+      <div class="rightColumn">
+        <p>Anleitung</p>
+
+        <div class="instructionContent">
+          <div formArrayName="instructionSteps" class="instructionSteps">
+            <div
+              *ngFor="
+                let instruction of instructionSteps.controls;
+                let instructionIndex = index
+              "
+              class="instructionComplete"
+            >
+              <label>{{ instructionIndex + 1 }}.</label>
+              <textarea
+                [formControlName]="instructionIndex"
+                type="text"
+                class="instruction"
+                id="{{ instructionIndex + 1 }}"
+                placeholder="Was muss getan werden?"
+              ></textarea>
+
+              <button class="minus"
+                name="minus"
+                type="button"
+                (click)="removeInstruction(instructionIndex)"
+              ></button>
+            </div>
+          </div>
+
+          <button class="plus" type="button" (click)="addInstructionStep()"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="lowerBox">
+      <p class="tagsExplained">
+        Hier kannst du mit nur ein paar Klicks ein wenig mehr über dein Rezept
+        erzählen. Aus jeder Kategorie kannst du Eigenschaften wählen, mit denen
+        dein Rezept ganz leicht gefunden werden kann!
+      </p>
+
+      <div class="leftColumn">
+        <div *ngFor="let dish of dishType | enumToArray">
+          <label class="tag dishType">
+            <input
+              name="dishType"
+              value="{{ dish }}"
+              type="radio"
+              (change)="dishTypeHandler($event)"
+            />
+            {{ dish }}
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="middleColumn">
+        <div *ngFor="let country of cuisine | enumToArray">
+          <label class="tag cuisine">
+            <input
+              name="cuisine"
+              value="{{ country }}"
+              type="radio"
+              (change)="cuisineHandler($event)"
+            />
+            {{ country }}
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="rightColumn">
+        <div *ngFor="let diet of dietType | enumToArray">
+          <label class="tag dietType">
+            <input
+              value="{{ diet }}"
+              type="checkbox"
+              (click)="dietTypeHandler($event)"
+            />
+            {{ diet }}
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <button
+        class="submitRecipe"
+        type="submit"
+        type="button"
+        [disabled]="this.recipeForm.invalid"
+        (click)="sendRecipe()"
+      >
+        Rezept abschicken
+      </button>
+
+    </div>
+  </form>
+</div>
